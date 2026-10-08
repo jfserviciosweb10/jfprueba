@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: jfserviciosweb10/jfprueba-com
+  repo: jfserviciosweb10/jfprueba
   branch: main
   base_url: https://jf-decap-oauth.jfserviciosweb.workers.dev
 
