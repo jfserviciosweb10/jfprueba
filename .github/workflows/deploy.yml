@@ -1,0 +1,65 @@
+name: Deploy con Pagefind
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Traducir contenido nuevo del Panel (EN)
+        continue-on-error: true
+        env:
+          JF_TRAD_TOKEN: ${{ secrets.JF_TRAD_TOKEN }}
+          JF_SITIO: jfprueba-com
+          JF_IDIOMA2: en
+        run: node .github/scripts/traducir-contenido.js
+
+      - name: Reconstruir Menú/Staff/Portfolio/Promociones/Horarios
+        run: node .github/scripts/build-colecciones.js
+
+      - name: Reconstruir Datos del negocio (portada, servicios, horario)
+        run: node .github/scripts/build-negocio.js
+
+      - name: Publicar Blog (artículos del Panel de Contenidos)
+        run: node .github/scripts/build-blog.js
+
+      - name: Commitear index.html si hubo cambios
+        run: |
+          git config user.name "JF Bot"
+          git config user.email "bot@jfserviciosweb.com"
+          git add index.html blog sitemap.xml
+          if [ -d _data ]; then git add _data; fi
+          git diff --quiet && git diff --staged --quiet || git commit -m "Actualizar contenido editable [auto]"
+          git push || echo "Nada para pushear"
+
+      - name: Instalar Pagefind
+        run: npm install -g pagefind
+
+      - name: Generar índice de búsqueda
+        run: pagefind --site . --output-path pagefind
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Subir archivos al deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write

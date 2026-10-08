@@ -1,12 +1,1126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ensayo OK</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prueba Dominio JF — el trebol, santa fe</title>
+
+<style>
+.lang-switch{display:flex;gap:4px;margin-left:16px;background:rgba(0,0,0,.07);border-radius:20px;padding:3px}
+.lang-switch button{border:none;background:transparent;color:#555;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:16px;cursor:pointer;transition:all .2s}
+.lang-switch button.active{background:var(--p);color:#fff}
+@media(max-width:900px){.lang-switch{margin-left:8px}.lang-switch button{padding:4px 9px;font-size:.68rem}}
+</style>
+<style>
+.jf-search-btn{background:rgba(0,0,0,.07);border:none;color:var(--p);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin-left:8px}
+.jf-search-btn:hover{background:rgba(0,0,0,.14)}
+#jfSearchOverlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:8vh 20px}
+#jfSearchOverlay.open{display:flex}
+#jfSearchPanel{background:#fff;border-radius:var(--r2,14px);max-width:640px;width:100%;max-height:75vh;overflow:auto;padding:24px;position:relative}
+#jfSearchClose{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888}
+#jfSearchTitle{font-weight:800;font-size:1.05rem;margin-bottom:14px;color:#222}
+@media(max-width:600px){#jfSearchOverlay{padding:4vh 12px}}
+</style>
+<meta name="description" content="somos lo que somoss el trebol, santa fe.">
+<meta property="og:title" content="Prueba Dominio JF">
+<meta property="og:description" content="somos lo que somoss">
+<meta property="og:url" content="https://jfprueba.com">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Lato:wght@400;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- Google Analytics 4 -->
+
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0077B6"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Prueba Dominio JF","description":"somos lo que somoss","url":"https://jfprueba.com","telephone":"+5493442569002","email":"yoemifus@gmail.com","image":"https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&fit=crop","address":{"@type":"PostalAddress","addressLocality":"el trebol, santa fe","addressCountry":"AR"},"openingHours":"-------","priceRange":"$$","hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"lamm","description":"-lalala","provider":{"@type":"LocalBusiness","name":"Prueba Dominio JF"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"akakak","description":"suhbja","provider":{"@type":"LocalBusiness","name":"Prueba Dominio JF"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"hsn ksk","description":"nnhudhd","provider":{"@type":"LocalBusiness","name":"Prueba Dominio JF"}}}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://jfprueba.com/"},{"@type":"ListItem","position":2,"name":"Prueba Dominio JF","item":"https://jfprueba.com/"}]}</script>
+<style>
+:root{
+  --p:#0077B6;--a:#00B4D8;--s:#90E0EF;
+  --fondo:#F8F9FA;--texto:#212529;--osc:#005F92;
+  --ff-d:'Roboto Slab',Georgia,serif;--ff-b:'Lato',sans-serif;
+  --r:14px;--sombra:0 6px 28px rgba(0,0,0,.09);--tr:.35s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+body{font-family:var(--ff-b);color:var(--texto);background:var(--fondo);overflow-x:hidden;line-height:1.65;padding-top:109px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block;object-fit:cover}
+h4{font-family:var(--ff-d);font-size:1rem;font-weight:700;color:var(--texto);line-height:1.4}
+h5{font-family:var(--ff-d);font-size:.9rem;font-weight:700;color:var(--texto);line-height:1.4}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section-title{font-family:var(--ff-d);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--p);text-align:center;margin-bottom:12px}
+.section-sub{text-align:center;color:#666;font-size:1.05rem;margin-bottom:52px;line-height:1.7}
+.divider{width:60px;height:4px;background:var(--a);border-radius:2px;margin:0 auto 44px}
+.btn{display:inline-block;padding:15px 36px;border-radius:50px;font-weight:700;font-size:1rem;transition:all var(--tr);cursor:pointer;border:none}
+.btn-p{background:var(--p);color:white;box-shadow:0 6px 24px rgba(0,0,0,.2)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.25);filter:brightness(1.08)}
+.btn-o{background:transparent;color:white;border:2px solid white}
+.btn-o:hover{background:white;color:var(--p);transform:translateY(-2px)}
+.reveal-up{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-up.visible{opacity:1;transform:translateY(0)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounceWA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* JF BAR */
+.jf-bar{background:linear-gradient(90deg,#0d2b5e,#1a3a6b);padding:9px 24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;position:fixed;top:0;left:0;right:0;z-index:1001}
+.jf-bar span{color:#b8c8e0;letter-spacing:.02em}
+.jf-btn{background:#25d366;color:white;padding:6px 18px;border-radius:20px;font-weight:700;font-size:13px;transition:all var(--tr)}
+.jf-btn:hover{background:#20c55a;transform:translateY(-1px)}
+
+/* NAVBAR */
+.navbar{background:white;padding:14px 0;position:fixed;top:0;left:0;right:0;z-index:1000;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:all var(--tr)}
+.navbar.scrolled{padding:10px 0;box-shadow:0 4px 24px rgba(0,0,0,.12)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--ff-d);font-size:20px;font-weight:700;color:var(--p)}
+.nav-links{list-style:none;display:none;gap:28px}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:89px;left:0;right:0;width:100%;max-width:100%;background:white;padding:32px 24px;gap:8px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:999}
+.nav-links a{color:#555;font-weight:600;font-size:14px;letter-spacing:.03em;text-transform:uppercase;transition:color var(--tr);position:relative;padding-bottom:4px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--p);transition:width var(--tr)}
+.nav-links a:hover{color:var(--p)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.menu-toggle{display:block;background:none;border:none;font-size:22px;cursor:pointer;color:var(--p)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:-2;transition:transform 8s ease-out}
+.hero-img.loaded{transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.58) 100%);z-index:-1}
+.hero-content{max-width:860px;padding:0 24px;animation:fadeUp 1.1s ease-out both}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);padding:6px 20px;border-radius:30px;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2.6rem,6vw,4.8rem);font-weight:700;line-height:1.08;margin-bottom:20px;text-shadow:0 3px 12px rgba(0,0,0,.4)}
+.hero p{font-size:clamp(1rem,2vw,1.22rem);margin-bottom:36px;opacity:.92;font-weight:300}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);color:white;opacity:.7;font-size:1.4rem;animation:bounceWA 2s infinite}
+
+/* STATS */
+.stats{background:var(--p);padding:60px 24px;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:-60px;right:-60px;width:250px;height:250px;background:rgba(255,255,255,.05);border-radius:50%}
+.stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.stat-item{text-align:center;padding:32px 20px;background:rgba(255,255,255,.1);border-radius:var(--r);border:1px solid rgba(255,255,255,.15);transition:all var(--tr)}
+.stat-item:hover{background:rgba(255,255,255,.18);transform:translateY(-4px)}
+.stat-numero{font-family:var(--ff-d);font-size:3rem;font-weight:700;color:white;line-height:1}
+.stat-label{font-size:.9rem;color:rgba(255,255,255,.8);margin-top:8px;letter-spacing:.03em}
+
+/* NOSOTROS */
+.nosotros{padding:96px 24px;background:var(--fondo)}
+.nosotros-grid{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;max-width:1160px;margin:0 auto}
+.nosotros-img-wrap{position:relative;border-radius:20px;overflow:hidden;height:480px;box-shadow:0 24px 64px rgba(0,0,0,.15)}
+.nosotros-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.nosotros-badge{position:absolute;bottom:24px;left:24px;background:var(--p);color:white;padding:12px 20px;border-radius:12px;font-weight:700;font-size:.95rem;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.nosotros-content .s-label{font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+.nosotros-content h2{font-family:var(--ff-d);font-size:clamp(1.8rem,3vw,2.4rem);color:var(--p);margin-bottom:20px;line-height:1.2}
+.nosotros-content p{color:#555;line-height:1.8;margin-bottom:16px;font-size:1rem}
+.nosotros-valores{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.valor-item{display:flex;align-items:flex-start;gap:12px;padding:16px;background:white;border-radius:12px;box-shadow:var(--sombra)}
+.valor-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.valor-icon i{color:white;font-size:.95rem}
+.valor-item h4{font-size:1rem;font-weight:700;margin-bottom:3px;color:var(--texto)}
+.valor-item p{font-size:.92rem;color:#666;margin:0;line-height:1.55}
+
+/* SERVICIOS */
+.servicios{padding:96px 24px;background:white}
+.services-grid{display:grid;grid-template-columns:1fr;gap:28px}
+.services-grid.s4{grid-template-columns:1fr}
+.services-grid.s2{grid-template-columns:1fr}
+.service-card{background:var(--fondo);padding:40px 32px;border-radius:var(--r);box-shadow:var(--sombra);transition:all var(--tr);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.05)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--p),var(--a));transform:scaleX(0);transform-origin:left;transition:transform var(--tr)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover{transform:translateY(-10px);box-shadow:0 24px 56px rgba(0,0,0,.13)}
+.service-icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:all var(--tr)}
+.service-card:hover .service-icon{transform:scale(1.1) rotate(5deg)}
+.service-icon i{font-size:1.6rem;color:white}
+.service-card h3{font-family:var(--ff-d);font-size:1.2rem;color:var(--texto);margin-bottom:12px;font-weight:700}
+.service-card p{font-size:1rem;color:#555;line-height:1.75}
+
+/* GALERÍA */
+.galeria{padding:96px 24px;background:var(--fondo)}
+.gal-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:0}
+.tienda{padding:96px 24px;background:var(--fondo)}
+.tienda-grid{display:grid;grid-template-columns:1fr;gap:28px}
+.producto-card{background:white;border-radius:var(--r);box-shadow:var(--sombra);transition:all var(--tr);overflow:hidden;border:1px solid rgba(0,0,0,.05)}
+.producto-card:hover{transform:translateY(-6px)}
+.producto-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:#f2f2f2}
+.producto-img img{width:100%;height:100%;object-fit:cover}
+.producto-info{padding:24px}
+.producto-info h3{font-size:1.15rem;margin-bottom:8px;color:var(--texto)}
+.producto-desc{color:#666;font-size:.92rem;line-height:1.5;margin-bottom:12px}
+.producto-precio{font-family:var(--ff-d);font-size:1.4rem;color:var(--p);font-weight:700;margin-bottom:18px}
+/* Colecciones Decap/Sveltia: Menú, Staff, Portfolio, Promociones */
+.coleccion-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:640px){.coleccion-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.coleccion-grid{grid-template-columns:repeat(3,1fr)}}
+.coleccion-card{background:white;border-radius:var(--r);box-shadow:var(--sombra);transition:all var(--tr);overflow:hidden;border:1px solid rgba(0,0,0,.05)}
+.coleccion-card:hover{transform:translateY(-6px)}
+.coleccion-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:#f2f2f2;display:flex}
+.coleccion-img img{width:100%;height:100%;object-fit:cover;flex:1}
+.coleccion-img-doble{display:flex;gap:2px}
+.coleccion-img-doble .mitad{position:relative;flex:1;overflow:hidden}
+.coleccion-img-doble .mitad img{width:100%;height:100%;object-fit:cover;display:block}
+.coleccion-img-doble .tag-mitad{position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px}
+.coleccion-info{padding:24px}
+.coleccion-info h3{font-size:1.15rem;margin-bottom:6px;color:var(--texto)}
+.coleccion-info .coleccion-sub{font-family:var(--ff-d);font-size:1.05rem;color:var(--p);font-weight:700;margin-bottom:10px}
+.coleccion-info p{font-size:.92rem;color:#666;line-height:1.6}
+.horarios-lista{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.horario-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 20px;background:white;border-radius:var(--r);box-shadow:var(--sombra);border:1px solid rgba(0,0,0,.05)}
+.horario-item .h-fecha{font-weight:700;color:var(--texto)}
+.horario-item .h-horario{color:var(--p);font-weight:700}
+.horario-item .h-nota{font-size:.85rem;color:#888;flex-basis:100%}
+.btn-producto{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:white;padding:12px 22px;border-radius:50px;font-weight:700;font-size:.92rem;transition:all var(--tr);width:100%;justify-content:center}
+.btn-producto:hover{background:#20c55a;transform:translateY(-2px)}
+.tienda-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9997;align-items:center;justify-content:center;padding:24px}
+.tienda-overlay-box{background:white;border-radius:var(--r);padding:32px 28px;max-width:400px;width:100%;box-shadow:var(--sombra);position:relative}
+.tienda-overlay-box h3{color:var(--p);margin-bottom:18px;font-family:var(--ff-d)}
+.tienda-overlay-box ol{padding-left:20px;line-height:1.9;color:var(--texto)}
+.tienda-overlay-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#999;line-height:1}
+.gal-item{border-radius:16px;overflow:hidden;height:240px;position:relative;cursor:pointer}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.08)}
+
+
+/* CTA SECUNDARIO */
+.cta-sec{position:relative;padding:120px 24px;text-align:center;color:white;overflow:hidden}
+.cta-sec-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:-2}
+.cta-sec-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.78),rgba(0,0,0,.45));z-index:-1}
+.cta-sec h2{font-family:var(--ff-d);font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.cta-sec p{font-size:1.12rem;margin-bottom:36px;opacity:.92;font-weight:300}
+
+/* PROCESO */
+.proceso{padding:96px 24px;background:white}
+.proc-grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:1000px;margin:0 auto;position:relative}
+.proc-grid::before{content:'';position:absolute;top:36px;left:15%;right:15%;height:2px;background:linear-gradient(90deg,var(--p),var(--a));z-index:0}
+.proc-step{text-align:center;position:relative;z-index:1;padding:0 16px}
+.proc-num{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));color:white;font-family:var(--ff-d);font-size:1.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.proc-step h3{font-family:var(--ff-d);font-size:1.1rem;color:var(--p);margin-bottom:10px;font-weight:700}
+.proc-step p{font-size:1rem;color:#555;line-height:1.75}
+
+/* TESTIMONIOS */
+.testimonios{padding:96px 24px;background:linear-gradient(135deg,var(--osc),var(--p));position:relative;overflow:hidden}
+.testimonios::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(255,255,255,.05);border-radius:50%}
+.testimonios .section-title{color:white}
+.testimonios .divider{background:rgba(255,255,255,.5)}
+.testi-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.testi-card{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:32px 28px;transition:all var(--tr)}
+.testi-card:hover{background:rgba(255,255,255,.18);transform:translateY(-6px)}
+.testi-stars{font-size:1.1rem;margin-bottom:16px}
+.testi-texto{color:rgba(255,255,255,.95);font-size:1.05rem;line-height:1.8;font-style:italic;margin-bottom:20px}
+.testi-nombre{color:rgba(255,255,255,.65);font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+
+/* FAQ */
+.faq{padding:96px 24px;background:var(--fondo)}
+.faq-inner{max-width:780px;margin:0 auto}
+.faq-item{border:1px solid #e8e8e8;border-radius:var(--r);margin-bottom:12px;overflow:hidden;transition:all var(--tr);background:white}
+.faq-item:hover{border-color:var(--s)}
+.faq-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:none;border:none;cursor:pointer;font-family:var(--ff-b);font-size:1rem;font-weight:600;color:var(--texto);text-align:left;gap:16px;transition:all var(--tr)}
+.faq-trigger:hover,.faq-trigger[aria-expanded="true"]{color:var(--p);background:rgba(0,0,0,.02)}
+.faq-icon{font-size:.85rem;color:var(--p);flex-shrink:0;transition:transform var(--tr)}
+.faq-trigger[aria-expanded="true"] .faq-icon{transform:rotate(180deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq-body.open{max-height:300px}
+.faq-body p{padding:0 28px 22px;color:#555;font-size:1rem;line-height:1.8}
+
+/* CONTACTO */
+.contacto{padding:96px 24px;background:white}
+.contacto-wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:56px;align-items:start}
+.contacto-info h2{font-family:var(--ff-d);font-size:2rem;color:var(--p);margin-bottom:12px}
+.contacto-info p{color:#666;margin-bottom:28px;line-height:1.7}
+.contacto-dato{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:16px 20px;background:var(--fondo);border-radius:var(--r);box-shadow:var(--sombra);transition:all var(--tr)}
+.contacto-dato:hover{transform:translateX(4px)}
+.dato-ico{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dato-ico i{color:white;font-size:1rem}
+.dato-ico img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+.dato-txt h4{font-size:.8rem;color:#999;margin-bottom:2px;text-transform:uppercase;letter-spacing:.05em}
+.dato-txt p{font-size:.95rem;color:var(--texto);font-weight:600;margin:0}
+.form-card{background:var(--fondo);padding:40px 36px;border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+.form-card h3{font-family:var(--ff-d);font-size:1.3rem;color:var(--p);margin-bottom:24px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.82rem;font-weight:700;color:var(--texto);margin-bottom:6px;letter-spacing:.03em;text-transform:uppercase}
+.form-control{width:100%;padding:13px 16px;border:2px solid #e8e8e8;border-radius:10px;font-family:var(--ff-b);font-size:.97rem;transition:all var(--tr);background:white}
+.form-control:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(0,0,0,.06)}
+textarea.form-control{resize:vertical;min-height:110px}
+.btn-submit{width:100%;padding:16px;border-radius:50px;background:linear-gradient(135deg,var(--p),var(--a));color:white;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all var(--tr)}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.form-msg{margin-top:14px;padding:12px 16px;border-radius:10px;font-size:.9rem;display:none}
+.form-msg.ok{background:#d4edda;color:#155724;display:block}
+.form-msg.err{background:#f8d7da;color:#721c24;display:block}
+
+/* FOOTER */
+footer{background:#1a1a2e;color:#888;padding:56px 24px 32px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:1160px;margin:0 auto 40px}
+.footer-brand .logo{color:var(--s);font-size:1.5rem;margin-bottom:12px}
+.footer-brand p{font-size:.87rem;color:#666;line-height:1.7;max-width:280px}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.social-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:.9rem;transition:all var(--tr)}
+.social-btn:hover{background:var(--p);color:white}
+.footer-col h4{color:white;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:8px}
+.footer-col a{font-size:.87rem;color:#666;transition:color var(--tr)}
+.footer-col a:hover{color:var(--s)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;max-width:1160px;margin:0 auto}
+.footer-bottom p{font-size:.82rem;color:#555}
+.footer-bottom a{color:#666;font-size:.82rem;transition:color var(--tr)}
+.footer-bottom a:hover{color:white}
+
+/* QR + VCF */
+.contacto-extras{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
+.extra-btn{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:50px;font-size:.88rem;font-weight:700;transition:all .3s;cursor:pointer;border:2px solid var(--p);color:var(--p);background:transparent;text-decoration:none}
+.extra-btn:hover{background:var(--p);color:white;transform:translateY(-2px)}
+.extra-btn i{font-size:1rem}
+#qrCanvas{margin-top:16px;display:none}
+#qrCanvas.show{display:block}
+#qrCanvas img,#qrCanvas canvas{background:#fff;padding:14px;border-radius:10px;box-sizing:content-box;margin:0 auto}
+.qr-wrap{text-align:center;margin-top:12px}
+.qr-wrap p{font-size:.75rem;color:#999;margin-top:6px}
+
+/* EXIT INTENT POPUP */
+#exitPopup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99999;align-items:center;justify-content:center;padding:20px}
+#exitPopup.show{display:flex}
+.exit-box{background:white;border-radius:20px;padding:40px 32px;max-width:480px;width:100%;text-align:center;position:relative;animation:fadeUp .4s ease-out both;box-shadow:0 24px 80px rgba(0,0,0,.3)}
+.exit-close{position:absolute;top:16px;right:20px;font-size:1.4rem;cursor:pointer;color:#aaa;background:none;border:none;line-height:1;transition:color .2s}
+.exit-close:hover{color:#333}
+.exit-emoji{font-size:3rem;margin-bottom:12px}
+.exit-box h3{font-family:var(--ff-d);font-size:1.8rem;color:var(--p);margin-bottom:10px}
+.exit-box p{color:#666;font-size:1rem;line-height:1.7;margin-bottom:24px}
+.exit-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:#25d366;color:white;border-radius:50px;font-weight:700;font-size:1rem;transition:all .3s;box-shadow:0 6px 24px rgba(37,211,102,.4)}
+.exit-wa:hover{background:#20c55a;transform:translateY(-2px)}
+
+/* AUTOMATIZACIÓN — ALERTAS WEB */
+.automatiz{background:var(--osc);padding:80px 0}
+.automatiz .section-title{color:white}
+.automatiz .section-sub{color:rgba(255,255,255,.75)}
+.autom-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:900px;margin:0 auto 48px}
+.autom-card{flex:0 1 260px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:22px 24px}
+@media(max-width:640px){.autom-card{flex:0 1 100%}}
+.autom-n{width:30px;height:30px;border-radius:50%;background:var(--a);color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.autom-card h4{color:#fff;margin-bottom:8px;font-size:1.02rem}
+.autom-antes{color:#f3a5a5;font-size:.85rem;margin-bottom:4px;line-height:1.5}
+.autom-despues{color:#a5e8c0;font-size:.85rem;line-height:1.5}
+.autom-chat-wrap{max-width:380px;margin:0 auto}
+.autom-chat{background:#111a22;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.autom-chat-head{background:#1a252f;display:flex;align-items:center;gap:10px;padding:12px 16px}
+.autom-chat-avatar{width:32px;height:32px;border-radius:50%;background:#128c7e;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.autom-chat-name{font-size:.82rem;font-weight:700;color:#fff}
+.autom-chat-status{font-size:.68rem;color:#25d366}
+.autom-chat-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+.autom-bubble-in{background:#1f2b36;color:#e8e8e8;border-radius:0 10px 10px 10px;padding:8px 12px;font-size:.78rem;max-width:80%;align-self:flex-start}
+.autom-bubble-out{background:#005c4b;color:#fff;border-radius:10px 0 10px 10px;padding:8px 12px;font-size:.78rem;max-width:85%;align-self:flex-end}
+.autom-chat-caption{text-align:center;color:rgba(255,255,255,.5);font-size:.72rem;margin-top:12px}
+.exit-skip{display:block;margin-top:14px;font-size:.85rem;color:#aaa;cursor:pointer;transition:color .2s}
+.exit-skip:hover{color:#666}
+
+/* WA FLOTANTE */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:bounceWA 2.5s ease-in-out infinite;transition:transform var(--tr);box-shadow:0 4px 20px rgba(37,211,102,.5)}
+.wa-float:hover{transform:scale(1.12);animation:none}
+.wa-float img{width:60px;height:60px;border-radius:50%;object-fit:cover}
+
+/* COOKIES */
+#cookiesBanner{display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:white;padding:16px 24px;z-index:9998;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.88rem}
+#acceptCookies{background:var(--p);color:white;border:none;padding:10px 24px;border-radius:30px;cursor:pointer;font-weight:700;font-size:.88rem;flex-shrink:0;transition:all var(--tr)}
+#acceptCookies:hover{filter:brightness(1.1)}
+
+@media(min-width:640px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid,.services-grid.s4,.services-grid.s2{grid-template-columns:1fr}
+  .nosotros-valores{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .tienda-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1200px){
+  .nav-links{display:flex;flex-direction:row;position:static;width:auto;background:transparent;padding:0;gap:clamp(12px,1.3vw,26px);box-shadow:none}
+  .menu-toggle{display:none}
+  .nav-inner{max-width:1400px}
+  .logo,.nav-inner>img{flex-shrink:0;margin-right:24px}
+  .nav-links a{font-size:13px;white-space:nowrap}
+}
+@media(min-width:900px){
+  .services-grid{grid-template-columns:repeat(3,1fr)}
+  .services-grid.s4{grid-template-columns:repeat(2,1fr)}
+  .services-grid.s2{grid-template-columns:repeat(2,1fr)}
+  .proc-grid{grid-template-columns:repeat(3,1fr)}
+  .proc-grid::before{display:block}
+  .testi-grid{grid-template-columns:repeat(3,1fr)}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .tienda-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr}
+  .footer-bottom{flex-direction:row;align-items:center}
+}
+@media(min-width:1024px){
+  .nosotros-grid{grid-template-columns:1fr 1fr}
+  .nosotros-img-wrap{height:520px}
+  .contacto-wrap{grid-template-columns:1fr 1.4fr}
+  .hero-btns{flex-direction:row;align-items:flex-start}
+  .btn,.btn-p,.btn-o{width:auto;text-align:center}
+}
+</style>
 </head>
-<body style="font-family:sans-serif;text-align:center;padding:4rem;">
-  <h1>Ensayo OK</h1>
-  <p>jfprueba.com apuntando a GitHub Pages.</p>
+<body>
+
+
+
+<!-- NAVBAR -->
+<nav class="navbar" id="mainNav">
+  <div class="nav-inner">
+    <div class="logo">Prueba Dominio JF</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
+      <li><a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+      <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+      <li><a href="#galeria" data-i18n="nav.galeria">Galería</a></li><li data-nav-col="menu" style="display:none"><a href="#menu" data-i18n="nav.menu">Menú</a></li><li data-nav-col="staff" style="display:none"><a href="#staff" data-i18n="nav.staff">Equipo</a></li><li data-nav-col="portfolio" style="display:none"><a href="#portfolio" data-i18n="nav.portfolio">Trabajos</a></li><li data-nav-col="promociones" style="display:none"><a href="#promociones" data-i18n="nav.promociones">Promos</a></li>
+      <li><a href="#proceso" data-i18n="nav.proceso">Proceso</a></li>
+      <li><a href="#testimonios" data-i18n="nav.testimonios">Testimonios</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+      <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li><!-- BLOG-NAV-START --><!-- BLOG-NAV-END -->
+    </ul>
+    <button class="jf-search-btn" id="jfSearchBtn" aria-label="Buscar" onclick="abrirBusqueda()"><i class="fas fa-search"></i></button>
+    
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" onclick="setLang('es')" data-lang-btn="es" class="active">ES</button>
+      <button type="button" onclick="setLang('en')" data-lang-btn="en">EN</button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- JF-Búsquedas (motor Pagefind por detrás) -->
+<div id="jfSearchOverlay" onclick="if(event.target===this)cerrarBusqueda()">
+  <div id="jfSearchPanel">
+    <button id="jfSearchClose" onclick="cerrarBusqueda()" aria-label="Cerrar">×</button>
+    <div id="jfSearchTitle"><span data-i18n-dyn data-i18n-es="🔎 JF-Búsquedas" data-i18n-i2="🔊 JF-Searches">🔎 JF-Búsquedas</span></div>
+    <div id="jf-search-box"></div>
+  </div>
+</div>
+<script>
+let jfSearchCargado = false;
+function abrirBusqueda(){
+  document.getElementById('jfSearchOverlay').classList.add('open');
+  if(!jfSearchCargado){
+    jfSearchCargado = true;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet'; link.href = '/pagefind/pagefind-ui.css';
+    document.head.appendChild(link);
+    const script = document.createElement('script');
+    script.src = '/pagefind/pagefind-ui.js';
+    script.onload = function(){
+      new PagefindUI({
+        element: '#jf-search-box',
+        showSubResults: true,
+        translations: {
+          placeholder: 'Buscar en este sitio...',
+          zero_results: 'No se encontraron resultados para [SEARCH_TERM]',
+          many_results: '[COUNT] resultados para [SEARCH_TERM]',
+          one_result: '[COUNT] resultado para [SEARCH_TERM]',
+          load_more: 'Cargar más resultados'
+        }
+      });
+    };
+    document.body.appendChild(script);
+  }
+}
+function cerrarBusqueda(){
+  document.getElementById('jfSearchOverlay').classList.remove('open');
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') cerrarBusqueda();
+});
+</script>
+
+<!-- 1. HERO -->
+<section class="hero" id="inicio">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&fit=crop" alt="Prueba Dominio JF" class="hero-img" id="heroImg" loading="eager" fetchpriority="high">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ el trebol, santa fe</div>
+    <!-- NEGOCIO-H1-START --><h1><span data-i18n-dyn data-i18n-es="pelitos del mañana" data-i18n-i2="tomorrow's little hairs">pelitos del mañana</span></h1><!-- NEGOCIO-H1-END -->
+    <!-- NEGOCIO-SUB-START --><p><span data-i18n-dyn data-i18n-es="pelucones" data-i18n-i2="big wigs">pelucones</span></p><!-- NEGOCIO-SUB-END -->
+    <div class="hero-btns">
+      <a href="#contacto" class="btn btn-p"><span data-i18n-dyn data-i18n-es="&quot;Pedí tu turno ahora&quot;" data-i18n-i2="&quot;Book your appointment now&quot;">"Pedí tu turno ahora"</span></a>
+      <a href="#servicios" class="btn btn-o"><span data-i18n-dyn data-i18n-es="Ver servicios" data-i18n-i2="View services">Ver servicios</span></a>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal-up" style="animation-delay:0s">
+      <div class="stat-numero" data-target="5" data-sufijo="+">0</div>
+      <div class="stat-label"><span data-i18n-dyn data-i18n-es="Años de experiencia" data-i18n-i2="Years of experience">Años de experiencia</span></div>
+    </div>
+    <div class="stat-item reveal-up" style="animation-delay:0.1s">
+      <div class="stat-numero" data-target="100" data-sufijo="+">0</div>
+      <div class="stat-label"><span data-i18n-dyn data-i18n-es="[REVISAR: clientes atendidos]" data-i18n-i2="[REVIEW: clients served]">[REVISAR: clientes atendidos]</span></div>
+    </div>
+    <div class="stat-item reveal-up" style="animation-delay:0.2s">
+      <div class="stat-numero" data-target="4.9" data-sufijo="⭐">0</div>
+      <div class="stat-label"><span data-i18n-dyn data-i18n-es="Calificación Google" data-i18n-i2="Google Rating">Calificación Google</span></div>
+    </div>
+    <div class="stat-item reveal-up" style="animation-delay:0.30000000000000004s">
+      <div class="stat-numero" data-target="100" data-sufijo="%">0</div>
+      <div class="stat-label"><span data-i18n-dyn data-i18n-es="titulo" data-i18n-i2="title">titulo</span></div>
+    </div></div>
+</div>
+
+<!-- 2. NOSOTROS -->
+<section class="nosotros" id="nosotros">
+  <div class="nosotros-grid">
+    <div class="nosotros-img-wrap reveal-up">
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=85&fit=crop" alt="Prueba Dominio JF — equipo" loading="lazy">
+      <div class="nosotros-badge"><span data-i18n-dyn data-i18n-es="✦ Desde 2021 en el trebol" data-i18n-i2="✦ Since 2021 in el trebol">✦ Desde 2021 en el trebol</span></div>
+    </div>
+    <div class="nosotros-content reveal-up">
+      <div class="s-label" data-i18n="nosotros.label">Quiénes somos</div>
+      <h2><span data-i18n-dyn data-i18n-es="La historia detrás de Prueba Dominio JF" data-i18n-i2="The story behind Prueba Dominio JF">La historia detrás de Prueba Dominio JF</span></h2>
+      <p data-i18n="nosotros.p1">Somos un equipo apasionado por lo que hacemos, con años de experiencia en el rubro y un compromiso real con cada cliente. Desde el primer día, nuestra misión fue clara: brindar un servicio de calidad que supere expectativas.</p>
+      <p data-i18n="nosotros.p2">Trabajamos con los mejores productos y las técnicas más modernas para garantizarte resultados que duran. Cada cliente es único y recibe una atención personalizada desde el primer contacto.</p>
+      <div class="nosotros-valores">
+        <div class="valor-item">
+          <div class="valor-icon"><i class="fas fa-star"></i></div>
+          <div><h4 data-i18n="valor1.t">Calidad</h4><p data-i18n="valor1.d">Sin compromisos. Cada trabajo refleja nuestro estándar.</p></div>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon"><i class="fas fa-handshake"></i></div>
+          <div><h4 data-i18n="valor2.t">Compromiso</h4><p data-i18n="valor2.d">Cumplimos lo que prometemos, siempre.</p></div>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon"><i class="fas fa-users"></i></div>
+          <div><h4 data-i18n="valor3.t">Equipo</h4><p data-i18n="valor3.d">Profesionales capacitados y en constante formación.</p></div>
+        </div>
+        <div class="valor-item">
+          <div class="valor-icon"><i class="fas fa-shield-alt"></i></div>
+          <div><h4 data-i18n="valor4.t">Garantía</h4><p data-i18n="valor4.d">Respaldamos cada servicio con garantía real.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="servicios.title">Nuestros servicios</h2>
+    <div class="divider reveal-up"></div>
+    <!-- NEGOCIO-SERV-START --><div class="services-grid">
+    <div class="service-card reveal-up" style="animation-delay:0s">
+      <div class="service-icon"><i class="fas fa-star"></i></div>
+      <h3><span data-i18n-dyn data-i18n-es="lamm" data-i18n-i2="lamm">lamm</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="-lalala" data-i18n-i2="-lalala">-lalala</span></p>
+    </div>
+    <div class="service-card reveal-up" style="animation-delay:0.08s">
+      <div class="service-icon"><i class="fas fa-check-circle"></i></div>
+      <h3><span data-i18n-dyn data-i18n-es="akakak" data-i18n-i2="akakak">akakak</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="suhbja" data-i18n-i2="suhbja">suhbja</span></p>
+    </div>
+    <div class="service-card reveal-up" style="animation-delay:0.16s">
+      <div class="service-icon"><i class="fas fa-thumbs-up"></i></div>
+      <h3><span data-i18n-dyn data-i18n-es="hsn ksk" data-i18n-i2="hsn ksk">hsn ksk</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="nnhudhd" data-i18n-i2="nnhudhd">nnhudhd</span></p>
+    </div></div><!-- NEGOCIO-SERV-END -->
+  </div>
+</section>
+
+<!-- 4. GALERÍA -->
+<section class="galeria" id="galeria">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="galeria.title">Galería de trabajos</h2>
+    <p class="section-sub reveal-up" data-i18n="galeria.sub">Una muestra de lo que hacemos. Cada proyecto es único.</p>
+    <div class="gal-grid">
+    <div class="gal-item reveal-up" style="animation-delay:0s">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 1" loading="lazy">
+    </div>
+    <div class="gal-item reveal-up" style="animation-delay:0.06s">
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 2" loading="lazy">
+    </div>
+    <div class="gal-item reveal-up" style="animation-delay:0.12s">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 3" loading="lazy">
+    </div>
+    <div class="gal-item reveal-up" style="animation-delay:0.18s">
+      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 4" loading="lazy">
+    </div>
+    <div class="gal-item reveal-up" style="animation-delay:0.24s">
+      <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 5" loading="lazy">
+    </div>
+    <div class="gal-item reveal-up" style="animation-delay:0.3s">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80&fit=crop" alt="Prueba Dominio JF — foto 6" loading="lazy">
+    </div></div>
+  </div>
+</section>
+
+<!-- CTA SECUNDARIO -->
+<section class="cta-sec">
+  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=85&fit=crop" alt="Prueba Dominio JF" class="cta-sec-img" loading="lazy">
+  <div class="cta-sec-ov"></div>
+  <h2 class="reveal-up">Prueba Dominio JF</h2>
+  <p class="reveal-up"><span data-i18n-dyn data-i18n-es="somos lo que somoss" data-i18n-i2="we are what we are">somos lo que somoss</span></p>
+  <a href="https://wa.me/5493442569002?text=Hola!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20hacer%20una%20consulta." class="btn btn-o reveal-up" target="_blank" rel="noopener"><span data-i18n-dyn data-i18n-es="Contactanos" data-i18n-i2="Contact us">Contactanos</span></a>
+</section>
+
+
+
+<!-- NUESTRO MENÚ (Decap/Sveltia) -->
+<section class="menu-seccion" id="menu" style="display:none">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="menu.title">Nuestro menú</h2>
+    <div class="divider reveal-up"></div>
+    <div class="menu-grid coleccion-grid"><!-- MENU-GRID-START --><!-- MENU-GRID-END --></div>
+  </div>
+</section>
+
+<!-- NUESTRO EQUIPO (Decap/Sveltia) -->
+<section class="staff-seccion" id="staff" style="display:none">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="staff.title">Nuestro equipo</h2>
+    <div class="divider reveal-up"></div>
+    <div class="staff-grid coleccion-grid"><!-- STAFF-GRID-START --><!-- STAFF-GRID-END --></div>
+  </div>
+</section>
+
+<!-- NUESTROS TRABAJOS (Decap/Sveltia) -->
+<section class="portfolio-seccion" id="portfolio" style="display:none">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="portfolio.title">Nuestros trabajos</h2>
+    <div class="divider reveal-up"></div>
+    <div class="portfolio-grid coleccion-grid"><!-- PORTFOLIO-GRID-START --><!-- PORTFOLIO-GRID-END --></div>
+  </div>
+</section>
+
+<!-- PROMOCIONES (Decap/Sveltia) -->
+<section class="promociones-seccion" id="promociones" style="display:none">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="promociones.title">Promociones</h2>
+    <div class="divider reveal-up"></div>
+    <div class="promociones-grid coleccion-grid"><!-- PROMOCIONES-GRID-START --><!-- PROMOCIONES-GRID-END --></div>
+  </div>
+</section>
+
+<!-- HORARIOS ESPECIALES (Decap/Sveltia) -->
+<section class="horarios-seccion" id="horarios-especiales" style="display:none">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="horarios.title">Horarios especiales</h2>
+    <p class="section-sub reveal-up" data-i18n="horarios.sub">Feriados y fechas puntuales — el resto de la semana, el horario habitual sigue como siempre.</p>
+    <div class="horarios-lista"><!-- HORARIOS-LISTA-START --><!-- HORARIOS-LISTA-END --></div>
+  </div>
+</section>
+<!-- 5. PROCESO -->
+<section class="proceso" id="proceso">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="proceso.title">¿Cómo trabajamos?</h2>
+    <p class="section-sub reveal-up" data-i18n="proceso.sub">Un proceso simple, transparente y sin sorpresas.</p>
+    <div class="proc-grid">
+    <div class="proc-step reveal-up" style="animation-delay:0s">
+      <div class="proc-num">01</div>
+      <h3><span data-i18n-dyn data-i18n-es="Nos contactás" data-i18n-i2="Get in touch">Nos contactás</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="Por WhatsApp, teléfono o formulario. Te respondemos en menos de 2 horas." data-i18n-i2="Via WhatsApp, phone or form. We'll get back to you in less than 2 hours.">Por WhatsApp, teléfono o formulario. Te respondemos en menos de 2 horas.</span></p>
+    </div>
+    <div class="proc-step reveal-up" style="animation-delay:0.12s">
+      <div class="proc-num">02</div>
+      <h3><span data-i18n-dyn data-i18n-es="Analizamos tu caso" data-i18n-i2="We analyze your case">Analizamos tu caso</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="Evaluamos tus necesidades y te presentamos la mejor solución sin compromiso." data-i18n-i2="We evaluate your needs and present you with the best solution with no obligation.">Evaluamos tus necesidades y te presentamos la mejor solución sin compromiso.</span></p>
+    </div>
+    <div class="proc-step reveal-up" style="animation-delay:0.24s">
+      <div class="proc-num">03</div>
+      <h3><span data-i18n-dyn data-i18n-es="Ejecutamos y entregamos" data-i18n-i2="We execute and deliver">Ejecutamos y entregamos</span></h3>
+      <p><span data-i18n-dyn data-i18n-es="Trabajamos con profesionalismo y te entregamos el resultado en el tiempo acordado." data-i18n-i2="We work with professionalism and deliver your results on time.">Trabajamos con profesionalismo y te entregamos el resultado en el tiempo acordado.</span></p>
+    </div></div>
+  </div>
+</section>
+
+<!-- 6. TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="testimonios.title">Lo que dicen nuestros clientes</h2>
+    <div class="divider reveal-up"></div>
+    <div class="testi-grid">
+    <div class="testi-card reveal-up" style="animation-delay:0s">
+      <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testi-texto">"<span data-i18n-dyn data-i18n-es="324a7f8c-e1de-462e-8673-0fd8c0b29ddb" data-i18n-i2="324a7f8c-e1de-462e-8673-0fd8c0b29ddb">324a7f8c-e1de-462e-8673-0fd8c0b29ddb</span>"</p>
+      <div class="testi-nombre"><span data-i18n-dyn data-i18n-es="— Cliente" data-i18n-i2="— Client">— Cliente</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="faq.title">Preguntas frecuentes</h2>
+    <div class="divider reveal-up"></div>
+    <div class="faq-inner"><!-- FAQ-AUTO-START --><!-- FAQ-AUTO-END --></div>
+  </div>
+</section>
+
+<!-- 8. CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="container">
+    <h2 class="section-title reveal-up" data-i18n="contacto.title">Contacto</h2>
+    <p class="section-sub reveal-up" data-i18n="contacto.sub">Escribinos y te respondemos en menos de 2 horas.</p>
+    <div class="contacto-wrap">
+      <div class="reveal-up">
+        <h2 data-i18n="contacto.hablemos">Hablemos</h2>
+        <p data-i18n="contacto.hablemos.p">Estamos listos para ayudarte. Elegí la forma que más te convenga.</p>
+        <div class="contacto-dato">
+          <div class="dato-ico"><i class="fas fa-phone"></i></div>
+          <div class="dato-txt"><h4 data-i18n="contacto.telefono">Teléfono</h4><p><a href="tel:+5493442569002">+5493442569002</a></p></div>
+        </div>
+        <div class="contacto-dato">
+          <div class="dato-ico"><i class="fas fa-envelope"></i></div>
+          <div class="dato-txt"><h4 data-i18n="contacto.email">Email</h4><p><a href="mailto:yoemifus@gmail.com">yoemifus@gmail.com</a></p></div>
+        </div>
+        <div class="contacto-dato">
+          <div class="dato-ico"><i class="fas fa-clock"></i></div>
+          <div class="dato-txt"><h4 data-i18n="contacto.horario">Horario</h4><p><!-- NEGOCIO-HOR-START -->-------<!-- NEGOCIO-HOR-END --></p></div>
+        </div>
+        <div class="contacto-dato">
+          <div class="dato-ico"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="dato-txt"><h4 data-i18n="contacto.ubicacion">Ubicación</h4><p>el trebol, santa fe</p></div>
+        </div>
+        <a href="https://wa.me/5493442569002?text=Hola!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20hacer%20una%20consulta."
+           target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:#25d366;color:white;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.97rem;transition:all var(--tr)"
+           onmouseover="this.style.background='#20c55a';this.style.transform='translateY(-2px)'"
+           onmouseout="this.style.background='#25d366';this.style.transform='translateY(0)'">
+          <i class="fab fa-whatsapp" style="font-size:1.2rem"></i>
+          <span data-i18n="contacto.wabtn">Escribinos por WhatsApp</span>
+        </a>
+      </div>
+      <div class="form-card reveal-up">
+        <h3 data-i18n="form.title">Envianos un mensaje</h3>
+        <form id="contactForm" action="https://formspree.io/f/movnpobb" method="POST">
+          <input type="hidden" name="_subject" value="Consulta desde Prueba Dominio JF">
+          <div class="form-group">
+            <label data-i18n="form.nombre">Nombre *</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Tu nombre completo" data-i18n-ph="form.nombre.ph" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form.whatsapp">WhatsApp *</label>
+            <input type="tel" name="telefono" class="form-control" placeholder="Ej: 341 555 0192" data-i18n-ph="form.whatsapp.ph" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form.email">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="tu@email.com" data-i18n-ph="form.email.ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="form.mensaje">Mensaje *</label>
+            <textarea name="mensaje" class="form-control" placeholder="¿En qué te podemos ayudar?" data-i18n-ph="form.mensaje.ph" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> <span data-i18n="form.submit">Enviar mensaje</span>
+          </button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+    <!-- QR + VCF -->
+    <div class="contacto-extras">
+      <button class="extra-btn" onclick="toggleQR()" aria-label="Ver QR de contacto">
+        <i class="fas fa-qrcode"></i> <span data-i18n="form.qr">Escanear QR</span>
+      </button>
+      <a class="extra-btn" href="#" onclick="descargarVCF(event)" aria-label="Guardar contacto">
+        <i class="fas fa-address-card"></i> <span data-i18n="form.vcf">Guardar contacto</span>
+      </a>
+    </div>
+    <div class="qr-wrap">
+      <div id="qrCanvas"></div>
+      <p id="qrLabel" style="display:none"><span data-i18n-dyn data-i18n-es="Escaneá para ir directo a WhatsApp" data-i18n-i2="Scan to go straight to WhatsApp">Escaneá para ir directo a WhatsApp</span></p>
+    </div>
+    <!-- BREVO MEETINGS -->
+    <div style="text-align:center;margin-top:40px;padding:32px 24px;background:var(--fondo);border-radius:var(--r);">
+      <p style="font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--a);margin-bottom:8px;"><span data-i18n-dyn data-i18n-es="¿Preferís elegir día y hora?" data-i18n-i2="Would you prefer to choose day and time?">¿Preferís elegir día y hora?</span></p>
+      <h3 style="font-family:var(--ff-d);font-size:1.5rem;color:var(--p);margin-bottom:12px;"><span data-i18n-dyn data-i18n-es="Agendá una consulta sin cargo" data-i18n-i2="Schedule a free consultation">Agendá una consulta sin cargo</span></h3>
+      <p style="color:#666;margin-bottom:20px;font-size:.95rem;"><span data-i18n-dyn data-i18n-es="Elegí el horario que mejor te quede — presencial o videollamada." data-i18n-i2="Choose the time that works best for you — in person or video call.">Elegí el horario que mejor te quede — presencial o videollamada.</span></p>
+      <a href="https://meetings.brevo.com/jfprueba-com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:linear-gradient(135deg,var(--p),var(--a));color:white;border-radius:50px;font-weight:700;font-size:.95rem;box-shadow:0 6px 24px rgba(0,0,0,.2);"><span data-i18n-dyn data-i18n-es="📅 Elegir mi horario" data-i18n-i2="📅 Choose my time">📅 Elegir mi horario</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Prueba Dominio JF</div>
+      <p><span data-i18n-dyn data-i18n-es="somos lo que somoss" data-i18n-i2="we are what we are">somos lo que somoss</span></p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4><span data-i18n-dyn data-i18n-es="Navegación" data-i18n-i2="Navigation">Navegación</span></h4>
+      <ul>
+        <li><a href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
+        <li><a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+        <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+        <li><a href="#galeria" data-i18n="nav.galeria">Galería</a></li><li data-nav-col="menu" style="display:none"><a href="#menu" data-i18n="nav.menu">Menú</a></li><li data-nav-col="staff" style="display:none"><a href="#staff" data-i18n="nav.staff">Equipo</a></li><li data-nav-col="portfolio" style="display:none"><a href="#portfolio" data-i18n="nav.portfolio">Trabajos</a></li><li data-nav-col="promociones" style="display:none"><a href="#promociones" data-i18n="nav.promociones">Promos</a></li>
+        <li><a href="#proceso"><span data-i18n-dyn data-i18n-es="Cómo trabajamos" data-i18n-i2="How we work">Cómo trabajamos</span></a></li>
+        <li><a href="#testimonios" data-i18n="nav.testimonios">Testimonios</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+        <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li><!-- BLOG-NAV-START --><!-- BLOG-NAV-END -->
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span data-i18n-dyn data-i18n-es="Contacto" data-i18n-i2="Contact">Contacto</span></h4>
+      <ul>
+        <li><a href="tel:+5493442569002">+5493442569002</a></li>
+        <li><a href="mailto:yoemifus@gmail.com">yoemifus@gmail.com</a></li>
+        <li><a href="#">el trebol, santa fe</a></li>
+        <li><a href="#"><!-- NEGOCIO-HOR-START -->-------<!-- NEGOCIO-HOR-END --></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Prueba Dominio JF — <span data-i18n="footer.rights">Todos los derechos reservados</span>.</p>
+    <a href="https://jfserviciosweb.com" target="_blank" rel="noopener"><span data-i18n="footer.credito">Diseño web por</span> <strong><span data-i18n-dyn data-i18n-es="JF Servicios Web" data-i18n-i2="JF Web Services">JF Servicios Web</span></strong></a>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<a href="https://wa.me/5493442569002?text=Hola!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20hacer%20una%20consulta."
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <img src="img/whatsapp-flotante.webp?v=2" alt="WhatsApp" loading="lazy">
+</a>
+
+<!-- COOKIES -->
+<div id="cookiesBanner" style="display:none">
+  <span><span data-i18n-dyn data-i18n-es="Usamos cookies para mejorar tu experiencia." data-i18n-i2="We use cookies to improve your experience.">Usamos cookies para mejorar tu experiencia.</span> <a href="#" style="color:var(--s)"><span data-i18n-dyn data-i18n-es="Más info" data-i18n-i2="More info">Más info</span></a></span>
+  <button id="acceptCookies"><span data-i18n-dyn data-i18n-es="Aceptar" data-i18n-i2="Accept">Aceptar</span></button>
+</div>
+
+<script>
+/* Nav mobile */
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',function(e){
+  e.stopPropagation();
+  const isOpen=navLinks.classList.toggle('open');
+  menuToggle.querySelector('i').className=isOpen?'fas fa-times':'fas fa-bars';
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',function(){
+    navLinks.classList.remove('open');
+    menuToggle.querySelector('i').className='fas fa-bars';
+  });
+});
+document.addEventListener('click',function(e){
+  if(!navLinks.contains(e.target)&&e.target!==menuToggle){
+    navLinks.classList.remove('open');
+    menuToggle.querySelector('i').className='fas fa-bars';
+  }
+});
+
+/* Navbar scroll */
+(function(){
+  const jfBar = document.querySelector('.jf-bar');
+  const nav   = document.getElementById('mainNav');
+  function updateNavTop(){
+    const jfH = jfBar ? jfBar.offsetHeight : 0;
+    nav.style.top = jfH + 'px';
+    document.body.style.paddingTop = (jfH + nav.offsetHeight) + 'px';
+    const nl = document.getElementById('navLinks'); if (nl) nl.style.top = (jfH + nav.offsetHeight) + 'px';
+  }
+  updateNavTop();
+  window.addEventListener('resize', updateNavTop, {passive:true});
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  },{passive:true});
+})();
+
+/* Hero parallax */
+const heroImg=document.getElementById('heroImg');
+heroImg.addEventListener('load',()=>heroImg.classList.add('loaded'));
+window.addEventListener('scroll',()=>{
+  if(window.scrollY<window.innerHeight)heroImg.style.transform='translateY('+window.scrollY*.3+'px) scale(1.05)';
+},{passive:true});
+
+/* Reveal scroll */
+const revObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal-up').forEach(el=>revObs.observe(el));
+
+/* Contadores */
+function animarContador(el){
+  const target=parseFloat(el.dataset.target);
+  const sufijo=el.dataset.sufijo||'';
+  const dec=target%1!==0;
+  const steps=1800/16;
+  let cur=0;
+  const inc=target/steps;
+  const t=setInterval(()=>{
+    cur+=inc;
+    if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=(dec?cur.toFixed(1):Math.floor(cur))+sufijo;
+  },16);
+}
+const statsObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){document.querySelectorAll('.stat-numero').forEach(animarContador);statsObs.disconnect();}
+  });
+},{threshold:0.3});
+const statsEl=document.getElementById('stats');
+if(statsEl)statsObs.observe(statsEl);
+
+/* FAQ */
+document.querySelectorAll('.faq-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const expanded=btn.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.faq-trigger').forEach(b=>{
+      b.setAttribute('aria-expanded','false');
+      const id=b.getAttribute('aria-controls');
+      if(id)document.getElementById(id).classList.remove('open');
+    });
+    if(!expanded){
+      btn.setAttribute('aria-expanded','true');
+      const id=btn.getAttribute('aria-controls');
+      if(id)document.getElementById(id).classList.add('open');
+    }
+  });
+});
+
+/* Formulario */
+const form=document.getElementById('contactForm');
+const formMsg=document.getElementById('formMsg');
+const submitB=document.getElementById('submitBtn');
+if(form){
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    submitB.innerHTML='<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    submitB.disabled=true;
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(res.ok){formMsg.className='form-msg ok';formMsg.textContent='✅ ¡Mensaje enviado! Te respondemos pronto.';form.reset();}
+      else throw new Error();
+    }catch{formMsg.className='form-msg err';formMsg.textContent='❌ Error. Escribinos por WhatsApp.';}
+    finally{submitB.innerHTML='<i class="fas fa-paper-plane"></i> <span data-i18n="form.submit">Enviar mensaje</span>';submitB.disabled=false;setTimeout(()=>{formMsg.className='form-msg';},6000);}
+  });
+}
+
+/* Nav activo */
+const sections=document.querySelectorAll('section[id]');
+const navObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);
+    });
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>navObs.observe(s));
+
+/* Cookies */
+const banner=document.getElementById('cookiesBanner');
+if(!localStorage.getItem('cookiesAccepted_v2'))setTimeout(()=>{banner.style.display='flex';},2500);
+document.getElementById('acceptCookies').addEventListener('click',()=>{
+  localStorage.setItem('cookiesAccepted_v2','true');
+  banner.style.display='none';
+});
+
+/* Tienda Digital — overlay "Cómo comprar", una sola vez, cuando el
+   visitante realmente llega a esa sección (no con un timeout ciego). */
+const tiendaSection=document.getElementById('tienda');
+if(tiendaSection){
+  const comoComprar=document.getElementById('tiendaComoComprar');
+  const cerrarComoComprar=document.getElementById('cerrarComoComprar');
+  const tiendaObs=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting && !localStorage.getItem('tiendaComoComprarVisto_v1')){
+        comoComprar.style.display='flex';
+        localStorage.setItem('tiendaComoComprarVisto_v1','true');
+      }
+    });
+  },{threshold:.3});
+  tiendaObs.observe(tiendaSection);
+  cerrarComoComprar.addEventListener('click',()=>{comoComprar.style.display='none';});
+  comoComprar.addEventListener('click',(e)=>{if(e.target===comoComprar)comoComprar.style.display='none';});
+}
+
+/* Scroll suave */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+/* Anti-copia */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+
+
+/* PWA Service Worker */
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
+
+/* QR Code */
+(function(){
+  let qrGenerated = false;
+  window.toggleQR = function(){
+    const wrap = document.getElementById('qrCanvas');
+    const label = document.getElementById('qrLabel');
+    if(!qrGenerated){
+      new QRCode(wrap, {
+        text: 'https://wa.me/5493442569002?text=Hola!%20Vengo%20del%20QR',
+        width: 160, height: 160,
+        colorDark: '#111827', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      qrGenerated = true;
+    }
+    const showing = wrap.classList.toggle('show');
+    label.style.display = showing ? 'block' : 'none';
+  };
+})();
+
+/* Tarjeta VCF */
+window.descargarVCF = function(e){
+  e.preventDefault();
+  const vcf = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:Prueba Dominio JF',
+    'ORG:Prueba Dominio JF',
+    'TEL;TYPE=CELL:+5493442569002',
+    'EMAIL:yoemifus@gmail.com',
+    'URL:https://jfprueba.com',
+    'ADR;TYPE=WORK:;;el trebol, santa fe;;;;AR',
+    'NOTE:somos lo que somoss',
+    'END:VCARD'
+  ].join('\n');
+  const blob = new Blob([vcf], {type:'text/vcard'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'jfprueba-com.vcf';
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
+/* Exit Intent */ /* SIN-PITCH-CLIENTES */
+(function(){
+  let shown = false;
+  function showExit(){
+    if(shown || sessionStorage.getItem('exitShown')) return;
+    shown = true;
+    sessionStorage.setItem('exitShown','1');
+    const popup = document.getElementById('exitPopup');
+    if(popup) popup.classList.add('show');
+  }
+  function hideExit(){
+    const popup = document.getElementById('exitPopup');
+    if(popup) popup.classList.remove('show');
+  }
+  document.addEventListener('mouseleave', e => {
+    if(e.clientY < 10) showExit();
+  });
+  setTimeout(showExit, 45000);
+  document.addEventListener('click', function(e){
+    const closeBtn = document.getElementById('exitClose');
+    const skipBtn  = document.getElementById('exitSkip');
+    const popup    = document.getElementById('exitPopup');
+    if(!popup) return;
+    if(e.target === closeBtn || e.target === skipBtn || e.target === popup){
+      hideExit();
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') hideExit();
+  });
+})();
+</script>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup"><!-- CARTEL-CLIENTE -->
+  <div class="exit-box">
+    <button class="exit-close" id="exitClose" aria-label="Cerrar">✕</button>
+    <div class="exit-emoji">👋</div>
+    <h3><span data-i18n-dyn data-i18n-es="¡Antes de irte!" data-i18n-i2="Before you go!">¡Antes de irte!</span></h3>
+    <p><span data-i18n-dyn data-i18n-es="¿Te quedó alguna duda? Escribinos por WhatsApp y te respondemos en minutos, sin compromiso." data-i18n-i2="Have any questions? Message us on WhatsApp and we'll get back to you in minutes, no obligation.">¿Te quedó alguna duda? Escribinos por WhatsApp y te respondemos en minutos, sin compromiso.</span></p>
+    <a href="https://wa.me/5493442569002?text=Hola, vi la web de Prueba%20Dominio%20JF y quiero consultar" target="_blank" rel="noopener" class="exit-wa">
+      <i class="fab fa-whatsapp"></i> <span data-i18n-dyn data-i18n-es="Escribinos ahora" data-i18n-i2="Message us now">Escribinos ahora</span>
+    </a>
+    <span class="exit-skip" id="exitSkip"><span data-i18n-dyn data-i18n-es="No gracias, sigo mirando" data-i18n-i2="No thanks, I'll keep browsing">No gracias, sigo mirando</span></span>
+  </div>
+</div>
+<!-- Microsoft Clarity — al final del body, no bloqueante -->
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.defer=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","XXXXXXXXXX");</script>
+
+<script>
+const T_UI={
+  es:{
+    'nav.inicio':'Inicio','nav.nosotros':'Nosotros','nav.servicios':'Servicios','nav.galeria':'Galería','nav.proceso':'Proceso','nav.testimonios':'Testimonios','nav.faq':'Preguntas','nav.contacto':'Contacto',
+    'nosotros.label':'Quiénes somos',
+    'nosotros.p1':'Somos un equipo apasionado por lo que hacemos, con años de experiencia en el rubro y un compromiso real con cada cliente. Desde el primer día, nuestra misión fue clara: brindar un servicio de calidad que supere expectativas.',
+    'nosotros.p2':'Trabajamos con los mejores productos y las técnicas más modernas para garantizarte resultados que duran. Cada cliente es único y recibe una atención personalizada desde el primer contacto.',
+    'valor1.t':'Calidad','valor1.d':'Sin compromisos. Cada trabajo refleja nuestro estándar.',
+    'valor2.t':'Compromiso','valor2.d':'Cumplimos lo que prometemos, siempre.',
+    'valor3.t':'Equipo','valor3.d':'Profesionales capacitados y en constante formación.',
+    'valor4.t':'Garantía','valor4.d':'Respaldamos cada servicio con garantía real.',
+    'servicios.title':'Nuestros servicios',
+    'galeria.title':'Galería de trabajos','galeria.sub':'Una muestra de lo que hacemos. Cada proyecto es único.',
+    'proceso.title':'¿Cómo trabajamos?','proceso.sub':'Un proceso simple, transparente y sin sorpresas.',
+    'testimonios.title':'Lo que dicen nuestros clientes',
+    'faq.title':'Preguntas frecuentes',
+    'contacto.title':'Contacto','contacto.sub':'Escribinos y te respondemos en menos de 2 horas.',
+    'contacto.hablemos':'Hablemos','contacto.hablemos.p':'Estamos listos para ayudarte. Elegí la forma que más te convenga.',
+    'contacto.telefono':'Teléfono','contacto.email':'Email','contacto.horario':'Horario','contacto.ubicacion':'Ubicación',
+    'contacto.wabtn':'Escribinos por WhatsApp',
+    'form.title':'Envianos un mensaje','form.nombre':'Nombre *','form.whatsapp':'WhatsApp *','form.email':'Email','form.mensaje':'Mensaje *',
+    'form.nombre.ph':'Tu nombre completo','form.whatsapp.ph':'Ej: 341 555 0192','form.email.ph':'tu@email.com','form.mensaje.ph':'¿En qué te podemos ayudar?',
+    'form.submit':'Enviar mensaje','form.qr':'Escanear QR','form.vcf':'Guardar contacto',
+    'footer.rights':'Todos los derechos reservados','footer.credito':'Diseño web por',
+    'nav.menu':'Menú','nav.staff':'Equipo','nav.portfolio':'Trabajos','nav.promociones':'Promos',
+    'menu.title':'Nuestro menú','staff.title':'Nuestro equipo','portfolio.title':'Nuestros trabajos','promociones.title':'Promociones','promociones.vence':'Vence',
+    'horarios.title':'Horarios especiales','horarios.sub':'Feriados y fechas puntuales — el resto de la semana, el horario habitual sigue como siempre.',
+    'portfolio.antes':'Antes','portfolio.despues':'Después'
+  },
+  en: {"nav.inicio":"Home","nav.nosotros":"About","nav.servicios":"Services","nav.galeria":"Gallery","nav.proceso":"Process","nav.testimonios":"Reviews","nav.faq":"FAQ","nav.contacto":"Contact","nosotros.label":"Who we are","nosotros.p1":"We are a team passionate about what we do, with years of experience in the industry and a real commitment to every customer. From day one, our mission was clear: deliver quality service that exceeds expectations.","nosotros.p2":"We work with the best products and the latest techniques to guarantee results that last. Every customer is unique and gets personalized attention from the very first contact.","valor1.t":"Quality","valor1.d":"No shortcuts. Every job reflects our standard.","valor2.t":"Commitment","valor2.d":"We deliver on what we promise, always.","valor3.t":"Team","valor3.d":"Trained professionals in constant development.","valor4.t":"Guarantee","valor4.d":"We back every service with a real guarantee.","servicios.title":"Our services","galeria.title":"Our work","galeria.sub":"A sample of what we do. Every project is unique.","proceso.title":"How we work","proceso.sub":"A simple, transparent process, no surprises.","testimonios.title":"What our customers say","faq.title":"Frequently asked questions","contacto.title":"Contact","contacto.sub":"Message us and we'll reply within 2 hours.","contacto.hablemos":"Let's talk","contacto.hablemos.p":"We're ready to help. Choose whatever way works best for you.","contacto.telefono":"Phone","contacto.email":"Email","contacto.horario":"Hours","contacto.ubicacion":"Location","contacto.wabtn":"Message us on WhatsApp","form.title":"Send us a message","form.nombre":"Name *","form.whatsapp":"WhatsApp *","form.email":"Email","form.mensaje":"Message *","form.nombre.ph":"Your full name","form.whatsapp.ph":"E.g: 341 555 0192","form.email.ph":"you@email.com","form.mensaje.ph":"How can we help you?","form.submit":"Send message","form.qr":"Scan QR","form.vcf":"Save contact","footer.rights":"All rights reserved","footer.credito":"Web design by","nav.menu":"Menu","nav.staff":"Team","nav.portfolio":"Our Work","nav.promociones":"Deals","menu.title":"Our menu","staff.title":"Our team","portfolio.title":"Our work","promociones.title":"Special offers","promociones.vence":"Ends","horarios.title":"Special hours","horarios.sub":"Holidays and specific dates — the rest of the week, our regular hours still apply.","portfolio.antes":"Before","portfolio.despues":"After"}
+};
+function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(T_UI[lang] && T_UI[lang][k]!==undefined) el.innerHTML=T_UI[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k=el.getAttribute('data-i18n-ph');
+    if(T_UI[lang] && T_UI[lang][k]!==undefined) el.setAttribute('placeholder', T_UI[lang][k]);
+  });
+  // Contenido propio del cliente (servicios, FAQ, testimonios, eslogan, etc.)
+  // ya viene con las dos versiones adentro del HTML — acá solo elegimos cuál mostrar.
+  document.querySelectorAll('[data-i18n-dyn]').forEach(function(el){
+    var esTxt = el.getAttribute('data-i18n-es');
+    var i2Txt = el.getAttribute('data-i18n-i2');
+    el.textContent = (lang === 'es') ? esTxt : i2Txt;
+  });
+  /* WA-MENSAJE-EN */
+  (function(){
+    var R=[[/^Hola, vi la web de (.+) y quiero consultar$/,"Hi, I saw the website of $1 and I would like to ask a question"],
+           [/^Hola! Vi tu página y quiero hacer una consulta[.]$/,"Hi! I saw your page and I would like to make an inquiry."],
+           [/^Hola! Quiero comprar: (.+)$/,"Hi! I would like to buy: $1"]];
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
+      var h=a.getAttribute('data-wa-es'); if(!h){ h=a.getAttribute('href'); a.setAttribute('data-wa-es',h); }
+      var i=h.indexOf('?text='); if(i<0) return;
+      a.setAttribute('href',h);
+      if(lang!=='en') return;
+      var t; try{ t=decodeURIComponent(h.slice(i+6)); }catch(e){ return; }
+      for(var k=0;k<R.length;k++){ if(R[k][0].test(t)){ a.setAttribute('href',h.slice(0,i)+'?text='+encodeURIComponent(t.replace(R[k][0],R[k][1]))); return; } }
+    });
+  })();
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang-btn]').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-lang-btn')===lang);
+  });
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+(function(){
+  var saved = null;
+  try{ saved = localStorage.getItem('siteLang'); }catch(e){}
+  if(saved && saved !== 'es') setLang(saved);
+})();
+</script>
 </body>
 </html>

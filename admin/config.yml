@@ -1,0 +1,172 @@
+backend:
+  name: github
+  repo: jfserviciosweb10/jfprueba-com
+  branch: main
+  base_url: https://jf-decap-oauth.jfserviciosweb.workers.dev
+
+media_folder: "img/uploads"
+public_folder: "img/uploads"
+
+collections:
+
+  - name: "negocio"
+    label: "Datos de mi negocio"
+    description: "Acá cambiás el título y subtítulo de tu portada, tus servicios y tu horario. Los cambios se ven en la web en un par de minutos. Los campos de traducción son opcionales: si los dejás vacíos, se traducen solos."
+    files:
+      - file: "_data/negocio.yml"
+        label: "Portada, servicios y horario"
+        name: "negocio"
+        fields:
+          - { label: "Título principal de la portada", name: "slogan", widget: "string" }
+          - { label: "Título principal (traducción, opcional)", name: "slogan_i2", widget: "string", required: false }
+          - { label: "Subtítulo de la portada", name: "subtitulo", widget: "string" }
+          - { label: "Subtítulo (traducción, opcional)", name: "subtitulo_i2", widget: "string", required: false }
+          - { label: "Horario de atención", name: "horario", widget: "string", hint: "Ej: Lunes a Viernes de 9 a 19 hs" }
+          - { label: "Horario de atención (traducción, opcional)", name: "horario_i2", widget: "string", required: false }
+          - label: "Mis servicios (hasta 4)"
+            name: "servicios"
+            widget: "list"
+            min: 1
+            max: 4
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Nombre del servicio", name: "titulo", widget: "string" }
+              - { label: "Nombre del servicio (traducción, opcional)", name: "titulo_i2", widget: "string", required: false }
+              - { label: "En qué consiste", name: "desc", widget: "text" }
+              - { label: "En qué consiste (traducción, opcional)", name: "desc_i2", widget: "text", required: false }
+              - { label: "Ícono", name: "icono", widget: "hidden", default: "fa-star" }
+  - name: "posts"
+    label: "Artículos del Blog"
+    folder: "blog/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Descripción corta", name: "description", widget: "string" }
+      - { label: "Imagen de portada", name: "image", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "faq"
+    label: "Preguntas frecuentes"
+    description: "Para borrar una pregunta usá el tacho de basura de la lista (tiene que quedar al menos una). Los cambios se ven en la web en un par de minutos."
+    files:
+      - file: "_data/faq.yml"
+        label: "Mis preguntas frecuentes"
+        name: "faq"
+        fields:
+          - label: "Preguntas"
+            name: "items"
+            widget: "list"
+            min: 1
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Pregunta", name: "q", widget: "string" }
+              - { label: "Pregunta (traducción, opcional)", name: "q_i2", widget: "string", required: false }
+              - { label: "Respuesta", name: "r", widget: "text" }
+              - { label: "Respuesta (traducción, opcional)", name: "r_i2", widget: "text", required: false }
+
+  - name: "menu"
+    label: "Menú / Carta"
+    description: "Para borrar un item del todo, usa el tacho de basura de la lista. Para ocultarlo de la web SIN borrarlo (por ejemplo, una promo vencida que capaz reusas), apaga el interruptor Mostrar en la web de ese item. Se muestran maximo 31 items a la vez; si cargas mas, los ultimos quedan guardados pero ocultos hasta que apagues o borres alguno."
+    files:
+      - file: "_data/menu.yml"
+        label: "Mi menú"
+        name: "menu"
+        fields:
+          - label: "Platos y bebidas"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.nombre}} — {{fields.precio}}"
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Nombre (traducción, opcional)", name: "nombre_i2", widget: "string", required: false }
+              - { label: "Precio", name: "precio", widget: "string", hint: "Ej: $8.000" }
+              - { label: "Categoría", name: "categoria", widget: "string", hint: "Ej: Entradas, Principales, Postres", required: false }
+              - { label: "Descripción (opcional)", name: "descripcion", widget: "text", required: false }
+              - { label: "Descripción (traducción, opcional)", name: "descripcion_i2", widget: "text", required: false }
+              - { label: "Foto (opcional)", name: "foto", widget: "image", required: false }
+              - { label: "Mostrar en la web", name: "activo", widget: "boolean", default: true }
+
+  - name: "staff"
+    label: "Equipo / Staff"
+    description: "Para borrar un item del todo, usa el tacho de basura de la lista. Para ocultarlo de la web SIN borrarlo (por ejemplo, una promo vencida que capaz reusas), apaga el interruptor Mostrar en la web de ese item. Se muestran maximo 31 items a la vez; si cargas mas, los ultimos quedan guardados pero ocultos hasta que apagues o borres alguno."
+    files:
+      - file: "_data/staff.yml"
+        label: "Mi equipo"
+        name: "staff"
+        fields:
+          - label: "Integrantes"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.nombre}} — {{fields.cargo}}"
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Cargo / especialidad", name: "cargo", widget: "string" }
+              - { label: "Cargo / especialidad (traducción, opcional)", name: "cargo_i2", widget: "string", required: false }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+              - { label: "Bio breve (opcional)", name: "bio", widget: "text", required: false }
+              - { label: "Bio breve (traducción, opcional)", name: "bio_i2", widget: "text", required: false }
+              - { label: "Mostrar en la web", name: "activo", widget: "boolean", default: true }
+
+  - name: "portfolio"
+    label: "Portfolio de trabajos"
+    description: "Para borrar un item del todo, usa el tacho de basura de la lista. Para ocultarlo de la web SIN borrarlo (por ejemplo, una promo vencida que capaz reusas), apaga el interruptor Mostrar en la web de ese item. Se muestran maximo 31 items a la vez; si cargas mas, los ultimos quedan guardados pero ocultos hasta que apagues o borres alguno."
+    files:
+      - file: "_data/portfolio.yml"
+        label: "Mis trabajos"
+        name: "portfolio"
+        fields:
+          - label: "Trabajos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Título del trabajo", name: "titulo", widget: "string" }
+              - { label: "Título del trabajo (traducción, opcional)", name: "titulo_i2", widget: "string", required: false }
+              - { label: "Descripción (opcional)", name: "descripcion", widget: "text", required: false }
+              - { label: "Descripción (traducción, opcional)", name: "descripcion_i2", widget: "text", required: false }
+              - { label: "Foto \"antes\" (opcional)", name: "foto_antes", widget: "image", required: false }
+              - { label: "Foto \"después\" / resultado", name: "foto_despues", widget: "image" }
+              - { label: "Mostrar en la web", name: "activo", widget: "boolean", default: true }
+
+  - name: "promociones"
+    label: "Promociones"
+    description: "Para borrar un item del todo, usa el tacho de basura de la lista. Para ocultarlo de la web SIN borrarlo (por ejemplo, una promo vencida que capaz reusas), apaga el interruptor Mostrar en la web de ese item. Se muestran maximo 31 items a la vez; si cargas mas, los ultimos quedan guardados pero ocultos hasta que apagues o borres alguno."
+    files:
+      - file: "_data/promociones.yml"
+        label: "Mis promociones"
+        name: "promociones"
+        fields:
+          - label: "Promociones activas"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.titulo}} — vence {{fields.vencimiento}}"
+            fields:
+              - { label: "Título de la promo", name: "titulo", widget: "string", hint: "Ej: 20% OFF en tinturas" }
+              - { label: "Título de la promo (traducción, opcional)", name: "titulo_i2", widget: "string", required: false }
+              - { label: "Descripción (opcional)", name: "descripcion", widget: "text", required: false }
+              - { label: "Descripción (traducción, opcional)", name: "descripcion_i2", widget: "text", required: false }
+              - { label: "Vence el", name: "vencimiento", widget: "datetime", type: "date", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Foto (opcional)", name: "foto", widget: "image", required: false }
+              - { label: "Mostrar en la web", name: "activo", widget: "boolean", default: true }
+
+  - name: "horarios"
+    label: "Horarios especiales"
+    description: "Para borrar un item del todo, usa el tacho de basura de la lista. Para ocultarlo de la web SIN borrarlo (por ejemplo, una promo vencida que capaz reusas), apaga el interruptor Mostrar en la web de ese item. Se muestran maximo 31 items a la vez; si cargas mas, los ultimos quedan guardados pero ocultos hasta que apagues o borres alguno."
+    files:
+      - file: "_data/horarios.yml"
+        label: "Horarios especiales / feriados"
+        name: "horarios"
+        fields:
+          - label: "Fechas especiales"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.fecha}} — {{fields.horario}}"
+            fields:
+              - { label: "Fecha", name: "fecha", widget: "datetime", type: "date", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Horario ese día", name: "horario", widget: "string", hint: "Ej: 9 a 13hs, o \"Cerrado\"" }
+              - { label: "Horario ese día (traducción, opcional)", name: "horario_i2", widget: "string", required: false }
+              - { label: "Nota (opcional)", name: "nota", widget: "string", required: false }
+              - { label: "Nota (traducción, opcional)", name: "nota_i2", widget: "string", required: false }
+              - { label: "Mostrar en la web", name: "activo", widget: "boolean", default: true }
