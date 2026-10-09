@@ -1,14 +1,14 @@
 slogan: PRUEBA 2 - traducción automática
-slogan_i2: ''
+slogan_i2: TEST 2 - automatic translation
 subtitulo: (prueba cliente)
-subtitulo_i2: ''
-horario: -------
-horario_i2: ''
+subtitulo_i2: (client test)
+horario: '-------'
+horario_i2: '-------'
 servicios:
   - titulo: lamm
     titulo_i2: lamm
-    desc: -lalala
-    desc_i2: -lalala
+    desc: '-lalala'
+    desc_i2: '-lalala'
     icono: fa-star
   - titulo: akakak
     titulo_i2: akakak
