@@ -1275,7 +1275,7 @@ function renderLog() {
   document.getElementById('log-lista').innerHTML = log.map(l =>
     `<div class="log-row">
       <span class="log-mod">${esc(l.mod)}</span>
-      <span class="log-txt">${esc(l.txt)}</span>
+      <span class="log-txt">${fmtWA(l.txt)}</span>
       <span class="log-hora">${l.hora}</span>
     </div>`
   ).join('') || '<p class="empty-msg">Sin actividad aún</p>';
@@ -1560,6 +1560,15 @@ function getDemoData() {
 // podía ejecutar código dentro del panel del dueño.
 function esc(v) {
   return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* Formato WhatsApp -> HTML: *negrita*, _cursiva_, ~tachado~ y saltos de línea (siempre escapa primero) */
+function fmtWA(v) {
+  return esc(v)
+    .replace(/\*([^*\n]+)\*/g, '<b>$1</b>')
+    .replace(/(^|[\s(])_([^_\n]+)_(?=[\s).,!?:;]|$)/g, '$1<i>$2</i>')
+    .replace(/~([^~\n]+)~/g, '<s>$1</s>')
+    .replace(/\n/g, '<br>');
 }
 
 function showToast(msg) {
