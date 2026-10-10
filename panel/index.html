@@ -1664,7 +1664,7 @@ async function activarPushNotifications() {
     const response = await fetch(CONFIG.PANEL_DATA_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'savePushSubscription', subscription: sub.toJSON(), tel_duenio: CONFIG.TEL_DUENIO })
+      body: JSON.stringify({ action: 'savePushSubscription', subscription: sub.toJSON(), tel_duenio: CONFIG.TEL_DUENIO, password_hash: localStorage.getItem(CONFIG.PWD_KEY) || '' })
     });
     const result = await response.json();
     if (result.ok) {
