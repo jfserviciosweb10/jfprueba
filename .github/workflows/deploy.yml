@@ -3,6 +3,9 @@ name: Deploy con Pagefind
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -43,6 +46,17 @@ jobs:
           if [ -d _data ]; then git add _data; fi
           git diff --quiet && git diff --staged --quiet || git commit -m "Actualizar contenido editable [auto]"
           git push || echo "Nada para pushear"
+
+      - name: Ciclo de vida de las Demo-Pruebas
+        run: |
+          if [ -f .github/scripts/demos-ciclo.js ]; then
+            node .github/scripts/demos-ciclo.js
+            git config user.name "JF Bot"
+            git config user.email "bot@jfserviciosweb.com"
+            git add -u
+            git diff --staged --quiet || git commit -m "Ciclo de demos: pausa/borrado [auto]"
+            git push || echo "Nada para pushear"
+          fi
 
       - name: Instalar Pagefind
         run: npm install -g pagefind
