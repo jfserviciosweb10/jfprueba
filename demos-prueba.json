@@ -4,5 +4,11 @@
     "publicada": "2026-10-26",
     "conservar": false,
     "pausada": false
+  },
+  "pruebaaviso": {
+    "nombre": "bar",
+    "publicada": "2026-10-28",
+    "conservar": false,
+    "pausada": false
   }
 }
